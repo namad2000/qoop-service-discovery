@@ -1,0 +1,27 @@
+server:
+  port: ${SERVER_PORT:6060}
+
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: ${APPLICATION_NAME:service-discovery}
+  profiles:
+    active: @spring.profiles.active@
+
+discovery:
+  service:
+    host: ${CONSUL_SERVICE_HOST:localhost}
+    port: ${CONSUL_SERVICE_PORT:6060}
+    token: ${CONSUL_SERVICE_TOKEN:24e33f73-3726-6c32-0e62-6f226b18a9ce}
+  self:
+    prefer-ip-address: ${SELF_PREFER_IP_ADDRESS:false}
+    ip-address: ${SELF_IP_ADDRESS:192.168.30.100}
+    port: ${SELF_PORT:${server.port}}
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    enable-self-preservation: false
