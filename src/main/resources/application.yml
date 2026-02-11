@@ -9,6 +9,10 @@ spring:
   profiles:
     active: @spring.profiles.active@
 
+  threads:
+    virtual:
+      enabled: true
+
 discovery:
   service:
     host: ${CONSUL_SERVICE_HOST:localhost}
